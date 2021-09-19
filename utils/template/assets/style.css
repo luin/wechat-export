@@ -22,22 +22,25 @@ html, body {
 }
 
 .message {
-  margin: 20px 10px;
-  padding: 10px 15px;
-  border-radius: 6px;
+  margin: 20px 10px 5px;
   max-width: 60%;
 }
 
-.message.others {
+.message .content {
+  padding: 10px 15px;
+  border-radius: 6px;
+}
+
+.message.others .content {
   background-color: white;
 }
 
-.message.mine {
+.message.mine .content {
   align-self: flex-end;
   background-color: #96ec69;;
 }
 
-.message.picture {
+.message.picture .content {
   padding: 0;
   background: transparent;
 }
@@ -50,6 +53,15 @@ html, body {
 .message.system,
 .message.system-complex {
   align-self: center;
+}
+
+.message.system .time,
+.message.system-complex .time {
+  text-align: center;
+}
+
+.message.system .content,
+.message.system-complex .content {
   background-color: #aaa;
   color: #fff;
   font-size: 14px;
@@ -62,4 +74,10 @@ html, body {
 .picture img {
   max-width: 60%;
   max-height: 200px;
+}
+
+.time {
+  font-size: 12px;
+  color: #ccc;
+  margin: 5px 15px 15px;
 }

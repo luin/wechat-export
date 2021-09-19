@@ -32,8 +32,8 @@ const audios = [...document.getElementsByTagName("audio")];
 audios.forEach((audio, index) => {
   audio.addEventListener("ended", () => {
     const next = audios[index + 1];
-    console.log(index, next);
     if (next) {
+      audios.forEach((audio) => audio.pause());
       next.play();
       next.scrollIntoView();
     }

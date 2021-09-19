@@ -9,10 +9,14 @@ const generateHTMLFromJSON = require("./generateHTMLFromJSON");
 const convertVoice = async (sourceDir, targetDir) => {
   new Promise((resolve) => {
     const silkSh = path.join(__dirname, "..", "silk", "converter.sh");
-    shell.exec(`sh "${silkSh}" "${sourceDir}" "${targetDir}" mp3`, {
-      silent: true,
-    });
-    resolve();
+    shell.exec(
+      `sh "${silkSh}" "${sourceDir}" "${targetDir}" mp3`,
+      {
+        async: true,
+        silent: true,
+      },
+      () => resolve()
+    );
   });
 };
 
@@ -72,6 +76,11 @@ const parseMessages = async (messages, input, output, messageId) => {
     async (message) => {
       const type = TYPES[message.Type] || "unkown";
       const data = {};
+
+      const date = new Date(message.CreateTime * 1000);
+      date.setMinutes(date.getMinutes() - date.getTimezoneOffset());
+      const dateStr = date.toISOString();
+      const time = `${dateStr.slice(0, 10)} ${dateStr.slice(11, -5)}`;
 
       switch (type) {
         case "picture": {
@@ -135,7 +144,7 @@ const parseMessages = async (messages, input, output, messageId) => {
         }
       }
 
-      return { ...message, type, data };
+      return { ...message, type, data, time };
     },
     { concurrency: 2 }
   );

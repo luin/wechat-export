@@ -25,7 +25,7 @@ const parseDatabase = async (filename, input, output) => {
       await parseMessages(messages, input, output, name.replace("Chat_", ""));
       console.log(`Done ${name}: ` + preview(messages));
     },
-    { concurrency: 5 }
+    { concurrency: 2 }
   );
 };
 
