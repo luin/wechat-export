@@ -1,0 +1,30 @@
+{
+  "name": "wechat-export",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luin/wechat-export.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/luin/wechat-export/issues"
+  },
+  "homepage": "https://github.com/luin/wechat-export#readme",
+  "dependencies": {
+    "fs-extra": "^10.0.0",
+    "glob": "^7.1.7",
+    "knex": "^0.95.11",
+    "lodash": "^4.17.21",
+    "mkdirp": "^1.0.4",
+    "p-map": "^4.0.0",
+    "shelljs": "^0.8.4",
+    "sqlite3": "^5.0.2"
+  }
+}

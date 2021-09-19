@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf8" />
+    <title>Chat History</title>
+    <link rel="stylesheet" href="./assets/style.css" />
+    <style></style>
+  </head>
+  <body>
+    <div class="filters">
+      <span class="filter-title">Filter:</span>
+      <button id="voice">Voice</button>
+      <button id="picture">Picture</button>
+      <button id="video">Video</button>
+      <button id="text">Text</button>
+      <button id="all">All</button>
+    </div>
+    <div class="message-list">
+      <% messages.forEach((message) => { %>
+      <div class="message <%- message.Des ? 'others' : 'mine' %> <%- message.type %>">
+        <% if (message.type === 'text') { %>
+        <div class="text"><%- message.Message %></div>
+        <% } else if (message.type === 'system') { %>
+        <div class="system"><%- message.Message %></div>
+        <% } else if (message.type === 'system-complex') { %>
+        <div class="system">System Message</div>
+        <% } else if (message.type === 'other') { %>
+        <div class="system"><%- message.data.content || '[UNKNOWN]' %></div>
+        <% } else if (message.type === 'picture') { %>
+        <div class="picture">
+          <a href="<%- message.data.picture %>" target="_blank">
+            <img loading="lazy" src="<%- message.data.picture %>" />
+          </a>
+        </div>
+        <% } else if (message.type === 'video') { %>
+        <div class="video">
+          <% if (message.data.video) { %>
+            <video controls>
+              <source src="<%- message.data.video %>" type="video/mp4">
+            </video>
+          <% } else { %>
+            <img loading="lazy" src="<%- message.data.thum %>" />
+          <% } %>
+        </div>
+        <div class="picture">
+          <a href="<%- message.data.picture %>" target="_blank">
+            <img src="<%- message.data.picture %>" />
+          </a>
+        </div>
+        <% } else if (message.type === 'voice') { %>
+        <div class="voice">
+          <audio controls>
+            <source type="audio/mp3" src="<%- message.data.voice %> " />
+          </audio>
+          <% if (message.data.text) { %>
+            <p><%- message.data.text %></p>
+          <% } %>
+        </div>
+        <% } else { %>
+          <p><%- message.type %></p>
+        <% } %>
+      </div>
+      <% }); %>
+    </div>
+    <script src="./assets/script.js"></script>
+  </body>
+</html>
