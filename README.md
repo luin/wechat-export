@@ -16,7 +16,8 @@ Export WeChat chat histories to HTML files.
 
     <img src="./assets/iexplore.png" width="500" />
 
-0. Clone the code
+0. Clone the code.
+0. Compile the [audio decoder](https://github.com/kn007/silk-v3-decoder): `cd silk/silk && make && cd ../../`
 0. `npm install`
 0. `node index.js path_to/Documents output_dir`
 
