@@ -35,8 +35,11 @@ html, body {
   background-color: white;
 }
 
-.message.mine .content {
+.message.mine {
   align-self: flex-end;
+}
+
+.message.mine .content {
   background-color: #96ec69;;
 }
 
