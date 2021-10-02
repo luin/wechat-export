@@ -6,7 +6,7 @@ async function main() {
   const args = process.argv.slice(2);
   const [input, output] = args;
   const files = glob.sync("DB/message_*.sqlite", {
-    cwd: args[0],
+    cwd: input,
     absolute: true,
   });
   console.log(`✅ Got ${files.length} message files`);

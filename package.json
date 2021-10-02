@@ -16,6 +16,9 @@
   "bugs": {
     "url": "https://github.com/luin/wechat-export/issues"
   },
+  "engines": {
+    "node": ">=14"
+  },
   "homepage": "https://github.com/luin/wechat-export#readme",
   "dependencies": {
     "fs-extra": "^10.0.0",

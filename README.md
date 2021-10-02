@@ -35,8 +35,9 @@ Tested on macOS 11.5.2 and iOS 14.8, but should work on any recent versions.
 
 3. Clone the code.
 4. Compile the [audio decoder](https://github.com/kn007/silk-v3-decoder): `cd silk/silk && make && cd ../../`
-5. `npm install`
-6. `node index.js path_to/Documents/{uid} output_dir` (`path_to/Documents` is what we got from the second step, and `uid` looks like `g3c3814a370neh4dr69uf9f889f6ea7a`).
+5. Install [Node.js](https://nodejs.org/en/) (>= 14)>
+6. `npm install`
+7. `node index.js path_to/Documents/{uid} output_dir` (`path_to/Documents` is what we got from the second step, and `uid` looks like `g3c3814a370neh4dr69uf9f889f6ea7a`).
 
 ## Articles
 
