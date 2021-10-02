@@ -1,6 +1,7 @@
 const map = require("p-map");
 const glob = require("glob");
 const parseDatabase = require("./utils/parseDatabase");
+const path = require("path");
 
 async function main() {
   const args = process.argv.slice(2);
@@ -9,7 +10,9 @@ async function main() {
     cwd: input,
     absolute: true,
   });
-  console.log(`✅ Got ${files.length} message files`);
+  console.log(
+    `✅ Got ${files.length} message files from ${path.join(input, "DB")}`
+  );
 
   await map(
     files,
